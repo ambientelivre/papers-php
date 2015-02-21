@@ -1,4 +1,4 @@
-<?
+<?php
 
 class Macrotemas {
   function carregar($db) {

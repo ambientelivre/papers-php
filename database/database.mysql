@@ -2,8 +2,6 @@
 --
 -- Host: localhost    Database: papers
 -- ------------------------------------------------------
--- Server version	4.0.24_Debian-10-log
-
 --
 -- Table structure for table `avaliacoes`
 --
@@ -19,7 +17,7 @@ CREATE TABLE `avaliacoes` (
   `comentarios_autor` text,
   `comentarios_comite` text,
   PRIMARY KEY  (`proposta`,`avaliador`)
-) TYPE=MyISAM;
+);
 
 --
 -- Dumping data for table `avaliacoes`
@@ -34,7 +32,7 @@ CREATE TABLE `copalestrantes` (
   `proposta` int(10) unsigned NOT NULL default '0',
   `pessoa` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`proposta`,`pessoa`)
-) TYPE=MyISAM;
+);
 
 --
 -- Dumping data for table `copalestrantes`
@@ -49,7 +47,7 @@ CREATE TABLE `dias` (
   `numero` int(10) unsigned NOT NULL default '0',
   `descricao` char(30) NOT NULL default '',
   PRIMARY KEY  (`numero`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `dias`
@@ -66,7 +64,7 @@ CREATE TABLE `grade` (
   `horario` int(11) NOT NULL default '0',
   `proposta` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dia`,`sala`,`horario`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `grade`
@@ -82,7 +80,7 @@ CREATE TABLE `horarios` (
   `inicio` time NOT NULL default '00:00:00',
   `final` time NOT NULL default '00:00:00',
   PRIMARY KEY  (`numero`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `horarios`
@@ -95,14 +93,14 @@ CREATE TABLE `horarios` (
 
 CREATE TABLE `macrotemas` (
   `cod` int(10) unsigned NOT NULL auto_increment,
-  `tstamp` timestamp(14) NOT NULL,
+  `tstamp` timestamp NOT NULL,
   `titulo` varchar(40) default NULL,
   `titulo_en` varchar(40) default NULL,
   `descr` text,
   `descr_en` text,
   `espacos` int(11) NOT NULL default '0',
   PRIMARY KEY  (`cod`)
-) TYPE=MyISAM;
+);
 
 --
 -- Dumping data for table `macrotemas`
@@ -117,7 +115,7 @@ CREATE TABLE `mesa` (
   `proposta` int(10) unsigned NOT NULL default '0',
   `pessoa` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`proposta`,`pessoa`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `mesa`
@@ -161,7 +159,7 @@ CREATE TABLE `pessoas` (
   KEY `nome` (`nome`),
   KEY `status` (`status`),
   KEY `pago` (`pago`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `pessoas`
@@ -185,7 +183,7 @@ CREATE TABLE `press` (
   `email` varchar(50) NOT NULL default '',
   `moderado` int(1) NOT NULL default '0',
   PRIMARY KEY  (`cod`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `press`
@@ -227,7 +225,7 @@ CREATE TABLE `propostas` (
   KEY `dthora` (`dthora`),
   KEY `idioma` (`idioma`),
   KEY `status` (`status`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `propostas`
@@ -243,7 +241,7 @@ CREATE TABLE `salas` (
   `descricao` varchar(30) NOT NULL default '',
   `detalhes` text,
   PRIMARY KEY  (`numero`)
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `salas`
@@ -255,7 +253,7 @@ CREATE TABLE `salas` (
 
 CREATE TABLE `avaliador` (
   `pessoa` int(11) default NULL
-) TYPE=MyISAM;
+) ;
 
 --
 -- Dumping data for table `avaliador`

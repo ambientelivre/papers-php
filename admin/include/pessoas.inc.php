@@ -1,4 +1,5 @@
-<?
+<?php
+
 class Pessoas {
 
   function encontrar($db,$cod) {

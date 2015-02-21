@@ -1,4 +1,4 @@
-<?
+<?php
 
 function expires($minutos = "60")
 {
