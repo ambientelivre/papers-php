@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -e
+
+if test -r ./script/testdata-tracks; then
+  ./script/testdata-tracks
+else
+  echo "Tracks"
+  for t in $(seq 1 10); do
+    ./script/dbconsole -Be "INSERT into macrotemas (titulo) values ('Trilha $t');"
+    printf .
+  done
+  echo
+fi
+
+printf "Speakers/Proposals\n"
+for p in $(seq 1 100); do
+  ./script/dbconsole -Be "INSERT INTO pessoas (nome, email, passwd) values ('Pessoa $p', '$p@localhost', md5('test'));"
+  ./script/dbconsole -Be "INSERT INTO propostas (titulo, pessoa, tema) values('Trabalho $p', (select cod from pessoas order by rand() limit 1), (select cod from macrotemas order by rand() limit 1));"
+  printf .
+done
+printf "\n"
+
+printf "Co-speakers\n"
+for p in $(./script/dbconsole -NBe 'select cod from propostas'); do
+  n=$(($RANDOM % 5))
+  ./script/dbconsole -Be "INSERT INTO copalestrantes (proposta,pessoa) SELECT $p, cod from pessoas order by rand() limit $n;"
+  printf .
+done
+printf "\n"

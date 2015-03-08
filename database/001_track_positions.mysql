@@ -1,0 +1,2 @@
+ALTER TABLE macrotemas ADD position INT DEFAULT 0;
+UPDATE macrotemas set position = 0;

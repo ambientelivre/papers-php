@@ -1,0 +1,1 @@
+../../speaker/templates/lostPassword1.tpl

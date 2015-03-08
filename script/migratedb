@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+base="$(dirname $0)/.."
+. "${base}/script/config.sh"
+
+"${base}/script/dbconsole" << EOSQL
+CREATE TABLE IF NOT EXISTS migrations (
+  name char(255) UNIQUE
+)
+EOSQL
+
+for migration in $(find database/ -name [0-9]\*.mysql | sort -n); do
+  migration_name=$(basename "$migration")
+
+  if ./script/dbconsole -e "select 'found' from migrations where name = '$migration_name'" --batch --skip-column-names | grep -q '^found$'; then
+    true # skipping, already done
+  else
+    echo "$migration_name (running)"
+    ./script/dbconsole < "$migration"
+    ./script/dbconsole -e "insert into migrations values('$migration_name')"
+  fi
+done

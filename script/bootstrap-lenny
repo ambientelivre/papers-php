@@ -1,0 +1,44 @@
+#!/bin/sh
+
+set -e
+
+debinstall() {
+  apt-get -q -y install $@
+}
+
+setup() {
+# proxy: apt-cacher-ng running on the host
+echo 'Acquire::http::Proxy "http://10.0.2.2:3142";' > /etc/apt/apt.conf.d/01proxy
+cat > /etc/apt/sources.list <<eof
+deb http://archive.debian.org/debian lenny main
+eof
+apt-get update
+}
+
+export DEBIAN_FRONTEND=noninteractive
+
+if test -f /tmp/apt.setup; then
+  echo "APT setup already done; skipping."
+else
+  setup
+  touch /tmp/apt.setup
+fi
+
+debinstall apache2 libapache2-mod-php5 php5-mysql mysql-server
+
+cat > /etc/apache2/sites-available/default <<EOF
+EnableSendfile Off
+<VirtualHost *:80>
+  ServerName localhost
+  DocumentRoot /vagrant
+  <Directory /vagrant>
+    Options +MultiViews
+    AddHandler php5-script php
+    AddType text/html php
+  </Directory>
+</VirtualHost>
+EOF
+
+/etc/init.d/apache2 reload
+
+cd /vagrant && ./script/createdb && ./script/testdata

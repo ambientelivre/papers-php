@@ -1,0 +1,1 @@
+../../speaker/templates/newPassword.pt-br.tpl

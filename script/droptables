@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+
+SQL=$(./script/dbconsole -NBe 'show tables' | sed -e 's/.*/DROP TABLE &;/')
+echo "$SQL" | ./script/dbconsole

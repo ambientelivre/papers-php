@@ -1,0 +1,45 @@
+#!/bin/sh
+
+set -e
+set -x
+
+setup() {
+  apt-get install -q -y netcat-openbsd
+  # proxy: apt-cacher-ng running on the host?
+  for ip in 10.0.2.2 192.168.122.1; do
+    if nc -z -w 1 $ip 3142; then
+      # use apt-cacher-ng running on the host as proxy
+      echo "Acquire::http::Proxy \"http://$ip:3142\";" > /etc/apt/apt.conf.d/01proxy
+    fi
+  done
+  apt-get update
+  apt-get -q -y dist-upgrade
+}
+
+export DEBIAN_FRONTEND=noninteractive
+
+if test -f /tmp/apt.setup; then
+  echo "APT setup already done; skipping."
+else
+  setup
+  touch /tmp/apt.setup
+fi
+
+apt-get -q -y install apache2 libapache2-mod-php5 php5-mysql mysql-server php5-curl
+
+cat > /etc/apache2/sites-available/default <<EOF
+EnableSendfile Off
+<VirtualHost *:80>
+  ServerName localhost
+  DocumentRoot /vagrant
+  <Directory /vagrant>
+    Options +MultiViews
+    AddHandler php5-script php
+    AddType text/html php
+  </Directory>
+</VirtualHost>
+EOF
+
+/etc/init.d/apache2 reload
+
+cd /vagrant && ./script/createdb && ./script/testdata

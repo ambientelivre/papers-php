@@ -1,0 +1,1 @@
+../../speaker/templates/footer.pt-br.tpl

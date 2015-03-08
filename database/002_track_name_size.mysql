@@ -1,0 +1,3 @@
+alter table macrotemas
+  modify titulo varchar(140) default NULL,
+  modify titulo_en varchar(140) default NULL;

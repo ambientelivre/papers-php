@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+base="$(dirname $0)/.."
+. "${base}/script/config.sh"
+
+echo "Creating the database"
+mysqladmin -u "$db_root" $@ create "$db"
+
+echo "Adding user"
+mysql -u "$db_root" $@ <<EOF
+  GRANT ALL PRIVILEGES ON ${db}.*
+    TO ${db_user}@localhost IDENTIFIED BY '${db_passwd}';
+  FLUSH PRIVILEGES;
+EOF
+
+echo "Migrating the database"
+"${base}"/script/migratedb
+
+if [ ! -f "${base}/conf/localhost.papers.conf.php" ]; then
+  sed -e "
+    s/<HOST>/localhost/;
+    s/<DB>/${db}/;
+    s/<USER>/${db_user}/;
+    s/<PASSWD>/${db_passwd}/;
+  " "${base}/conf/conf.php.dist" > "${base}/conf/localhost.conf.php"
+fi

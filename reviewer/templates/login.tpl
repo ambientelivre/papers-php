@@ -1,0 +1,1 @@
+../../speaker/templates/login.tpl

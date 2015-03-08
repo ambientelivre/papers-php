@@ -1,0 +1,1 @@
+../speaker/lostPassword.php
