@@ -1,4 +1,4 @@
-<?
+<?php
 
 require_once 'include/config.inc.php';
 require 'Smarty.class.php';

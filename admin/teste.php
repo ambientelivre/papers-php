@@ -39,7 +39,7 @@
     </style>
   </head>
   <body>
-<?
+<?php
 
   $dias = 3;
   $salas = 6;

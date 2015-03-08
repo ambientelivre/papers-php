@@ -1,4 +1,4 @@
-<?
+<?php
 
 # application path
 $_application_path = preg_replace('/\/(admin|speaker|pub|reviewer|register)\/[^\/]*$/','', $_SERVER['SCRIPT_FILENAME']);
