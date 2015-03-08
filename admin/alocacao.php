@@ -1,4 +1,4 @@
-<?
+<?php
 
 require 'include/mysmarty.inc.php';
 $smarty = new Smarty;
@@ -17,7 +17,7 @@ include('include/salas.inc.php');
 
 expires(0);
 
-$smarty->assign('title', 'Alocação de Espaços');
+$smarty->assign('title', 'Alocaï¿½ï¿½o de Espaï¿½os');
 
 $cod = str_replace('/', '', $_SERVER['PATH_INFO']);
 
@@ -27,7 +27,7 @@ $force = $_GET['force'];
 if ($cod) {
   // Alocar uma proposta
   if (Grade::estahAlocada($mysql,$cod) && (! $force)) {
-    // já alocada, mostrar informações
+    // jï¿½ alocada, mostrar informaï¿½ï¿½es
     $proposta = Propostas::encontrar($mysql,$cod);
     $smarty->assign('proposta', $proposta);
     $smarty->assign('macrotema', Macrotemas::encontrar($mysql,$proposta['tema']));

@@ -1,4 +1,4 @@
-<?
+<?php
 
 require 'include/mysmarty.inc.php';
 $smarty = new Smarty;
@@ -12,8 +12,8 @@ $mandatory = array('nome','veiculo','pais','estado',
 
 $labels = array(
   'nome' => 'Nome (<em>Name</em>)',
-  'veiculo' => 'Veículo (<em>Vehicle</em>)',
-  'pais' => 'País (<em>Country</em>)',
+  'veiculo' => 'Veï¿½culo (<em>Vehicle</em>)',
+  'pais' => 'Paï¿½s (<em>Country</em>)',
   'estado' => 'Estado (<em>State</em>)',
   'cidade' => 'Cidade (<em>City</em>)',
   'email' => 'e-mail'

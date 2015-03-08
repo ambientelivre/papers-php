@@ -1,4 +1,4 @@
-<?
+<?php
 
 // only proceed with web server authentication
 // TODO: put all /admin/ under papers authentication 

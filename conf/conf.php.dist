@@ -5,10 +5,10 @@
  * * * * * * * * * * * * * */
 
 // database configuration:
-$papers['db']['hostname']         = '<HOST>';
-$papers['db']['database']         = '<DB>';
-$papers['db']['username']         = '<USER>';
-$papers['db']['password']         = '<PASSWD>';
+$papers['db']['localhost']         = '<HOST>';
+$papers['db']['papers']         = '<DB>';
+$papers['db']['root']         = '<USER>';
+$papers['db']['sejalivre']         = '<PASSWD>';
 
 /* * * * * * * * * * * * 
  * event configuration *

@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('include/mysmarty.inc.php');
 
@@ -16,22 +16,26 @@ include('include/salas.inc.php');
 expires(0);
 
 $smarty = new MySmarty;
-$smarty->assign('title', 'Alocação de Espaços');
+$smarty->assign('title', 'Alocaï¿½ï¿½o de Espaï¿½os');
 
 $cod = str_replace('/', '', $_SERVER['PATH_INFO']);
 if (! preg_match('/^[0-9]+$/',$cod)) {
   $cod = null;
 }
 
+echo "AQUI";
+
 $smarty = new MySmarty;
 $mysql = new Mysql;
+
+
 
 if ($cod) {
   $proposta = Propostas::encontrar($mysql,$cod);
   if ($proposta['status'] != 'a' &&
       $proposta['status'] != 'p' &&
       $proposta['status'] != 'c') {
-    echo "Código inválido.";
+    echo "Cï¿½digo invï¿½lido.";
     exit;
   }
 

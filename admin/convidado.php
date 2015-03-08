@@ -1,4 +1,4 @@
-<?
+<?php
 
 require 'include/mysmarty.inc.php';
 require 'include/mysql.inc.php';

@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('include/mysql.inc.php');
 include('include/basic.inc.php');

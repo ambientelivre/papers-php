@@ -1,4 +1,4 @@
-<?
+<?php
 header('Content-Type: image/svg+xml; charset=iso-8859-15');
 print('<?xml version="1.0" encoding="iso-8859-15" standalone="no"?>');
 

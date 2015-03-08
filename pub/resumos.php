@@ -1,4 +1,4 @@
-<?
+<?php
 
 require 'include/mysmarty.inc.php';
 $smarty = new Smarty;
@@ -13,7 +13,7 @@ include('include/pessoas.inc.php');
 
 header('Content-Type: text/plain');
 expires(0);
-$smarty->assign('title', 'Alocação de Espaços');
+$smarty->assign('title', 'Alocaï¿½ï¿½o de Espaï¿½os');
 $mysql = new Mysql;
 
 function track($t) {

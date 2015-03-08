@@ -1,4 +1,4 @@
-<?
+<?php
 
 require 'include/mysmarty.inc.php';
 $smarty = new Smarty;
@@ -11,7 +11,7 @@ include('include/pessoas.inc.php');
 
 expires(0);
 
-$smarty->assign('title', 'Notificação de proponentes');
+$smarty->assign('title', 'Notificaï¿½ï¿½o de proponentes');
 
 $confim = $_POST['confirm'];
 $tipo = $_POST['tipo'];

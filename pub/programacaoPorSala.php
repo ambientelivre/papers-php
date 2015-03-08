@@ -1,4 +1,4 @@
-<?
+<?php
 
 # $Id: grade.php 4 2005-09-22 02:31:37Z terceiro $
 

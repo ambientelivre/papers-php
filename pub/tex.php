@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('include/mysmarty.inc.php');
 
@@ -46,7 +46,7 @@ echo "% be sure to include the multirow LaTeX package!\n";
 foreach ($dias as $dia) {
   echo '\startday{' . $dia['descricao'] . '}' . "\n";
   echo '\begin{tabular}{|c' . str_repeat('|' . $colwidthtext , $columns) . "|}\n";
-  //echo 'Horário';
+  //echo 'Horï¿½rio';
   hline();
   foreach ($salas as $sala) {
     echo ' & ';

@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('include/mysql.inc.php');
 include('include/basic.inc.php');
@@ -38,8 +38,8 @@ if (($rs->fields['espaco'] != $_POST['espaco']) and ($_POST['espaco'] > 0))
 
   if ($rs_es->RecordCount() > 0)
   {
-    print "O espaço " . $_POST['espaco'] . " não está disponível\n";
-    print "Ele está sendo usado pela proposta " . $rs_es->fields['cod'] . ' - ' . $rs_es->fields['titulo'] . "\n\n";
+    print "O espaï¿½o " . $_POST['espaco'] . " nï¿½o estï¿½ disponï¿½vel\n";
+    print "Ele estï¿½ sendo usado pela proposta " . $rs_es->fields['cod'] . ' - ' . $rs_es->fields['titulo'] . "\n\n";
 
     exit;
   }

@@ -1,4 +1,4 @@
-<?
+<?php
 
 require 'include/mysmarty.inc.php';
 $smarty = new Smarty;
@@ -17,7 +17,7 @@ include('include/salas.inc.php');
 
 expires(0);
 
-$smarty->assign('title', 'Alocação de Espaços');
+$smarty->assign('title', 'Alocaï¿½ï¿½o de Espaï¿½os');
 
 $mysql = new Mysql;
 

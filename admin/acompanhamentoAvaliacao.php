@@ -1,4 +1,4 @@
-<?
+<?php
 require 'include/mysmarty.inc.php';
 $smarty = new Smarty;
 $smarty->compile_check = true;
@@ -34,7 +34,7 @@ foreach($macrotemas as $macrotema) {
   $propostas[$mt] = $rs->GetArray();
 }
 
-  // avaliações:
+  // avaliaï¿½ï¿½es:
 $sql = "select proposta, avaliador
         from avaliacoes";
 $rs = $mysql->conn->Execute($sql);
@@ -53,7 +53,7 @@ $smarty->assign('propostas', $propostas);
 $smarty->assign('avaliacoes', $avaliacoes);
 $smarty->assign('nomes', $nomes);
 
-$smarty->assign('title', 'Acompanhamento de Avaliações');
+$smarty->assign('title', 'Acompanhamento de Avaliaï¿½ï¿½es');
 $smarty->assign('linkup', '.');
 $smarty->assign('central', 'acompanhamentoAvaliacao.tpl');
 $smarty->display('index.tpl');

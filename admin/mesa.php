@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('include/mysql.inc.php');
 include('include/basic.inc.php');
@@ -62,7 +62,7 @@ if ($pessoa) {
   $mesa = Propostas::mesa($mysql, $cod);
   $smarty->assign('mesa', $mesa);
 
-  $smarty->assign('title', 'Coordenação de mesa de "' . $proposta['titulo'] . '"');
+  $smarty->assign('title', 'Coordenaï¿½ï¿½o de mesa de "' . $proposta['titulo'] . '"');
   $smarty->assign('central','mesa.tpl');
   $smarty->assign('linkup', 'proposta/' . $cod);
   $smarty->display('index.tpl');

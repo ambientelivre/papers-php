@@ -8,12 +8,12 @@ include_once( "../adodb-xmlschema03.inc.php" );
 
 // To build the schema, start by creating a normal ADOdb connection:
 $db = ADONewConnection( 'mysql' );
-$db->Connect( 'localhost', 'root', '', 'test' ) || die('fail connect1');
+$db->Connect( 'localhost', 'root', '', 'schematest' );
 
 // To create a schema object and build the query array.
 $schema = new adoSchema( $db );
 
-// To upgrade an existing schema object, use the following
+// To upgrade an existing schema object, use the following 
 // To upgrade an existing database to the provided schema,
 // uncomment the following line:
 #$schema->upgradeSchema();
@@ -22,7 +22,7 @@ print "<b>SQL to build xmlschema.xml</b>:\n<pre>";
 // Build the SQL array
 $sql = $schema->ParseSchema( "xmlschema.xml" );
 
-var_dump( $sql );
+print_r( $sql );
 print "</pre>\n";
 
 // Execute the SQL on the database
@@ -51,3 +51,4 @@ $db2->debug=1;
 
 foreach ($sql as $s)
 $db2->Execute($s);
+?>
