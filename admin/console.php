@@ -2,7 +2,7 @@
 
 // only proceed with web server authentication
 // TODO: put all /admin/ under papers authentication 
-if (! $_SERVER['REMOTE_USER']) {
+if (! $_SERVER['REMOTE_USER'] && $_SERVER['REMOTE_ADDR'] != '127.0.0.1') {
   header('Content-Type: text/plain');
   echo('This feature is not enabled under no authentication');
   exit;

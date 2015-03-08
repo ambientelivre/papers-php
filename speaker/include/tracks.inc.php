@@ -34,7 +34,15 @@ class Tracks {
     $all = Tracks::findAll($db,$language);
     $assoc = array();
     foreach ($all as $track) {
-      $assoc[$track['cod']] = $track['titulo'];
+      $parts = preg_split('/\s*\|\s*/', $track[titulo]);
+      if (count($parts) > 1) {
+        if (!$assoc[$parts[0]]) {
+          $assoc[$parts[0]]= array();
+        }
+        $assoc[$parts[0]][$track['cod']] = $parts[1];
+      } else {
+        $assoc[$track['cod']] = $track['titulo'];
+      }
     }
     return $assoc;
   }

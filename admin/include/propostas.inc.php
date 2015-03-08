@@ -1,4 +1,4 @@
-<?php
+<?
 
 $STATUS_PRE_APROVADO = '\'p\'';
 $STATUS_CONVIDADO = '\'c\'';
@@ -16,11 +16,11 @@ $TODOS_STATUS = array(
                 );
 
 $STATUS_DESCRIPTIONS = array (
-                          'p' => 'Prï¿½-aprovado',
+                          'p' => 'Pré-aprovado',
                           'a' => 'Aprovado',
                           'i' => 'Indefinido',
                           'r' => 'Recusado',
-                          'd' => 'Desistï¿½ncia'
+                          'd' => 'Desistência'
                              );
 
 

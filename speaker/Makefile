@@ -1,20 +1,8 @@
-all: build runtime
-
-build: css img js
-	make -C include/
-
-img js:
-	ln -sf ../$@ .
-
-runtime: templates_c
+all: templates_c
 
 templates_c:
 	mkdir $@
 	chmod 777 $@
 
-css:
-	ln -s ../css .
-
 clean:
-	rm -rf templates_c css img js
-	make clean -C include
+	rm -rf templates_c

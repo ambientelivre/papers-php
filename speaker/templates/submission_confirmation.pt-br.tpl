@@ -11,7 +11,7 @@ através do website:
 {/if}
 
 Se a submissão foi feita por você, então você já tem a sua senha. Caso
-contrário, usa a opção "Esqueci minha senha" para receber uma nova senha por
+contrário, use a opção "Esqueci minha senha" para receber uma nova senha por
 e-mail.
 
 --

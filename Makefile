@@ -1,22 +1,19 @@
 PACKAGE = papers
 VERSION = 0.4.3
+GITIGNORE = $(CURDIR)/.gitignore
 
 IMG=$(patsubst %.svg,%.png,$(wildcard *.svg))
 
-all: build runtime
+all: build runtime .gitignore
 
 build: $(IMG)
-	make build -C pub/
-	make build -C speaker/
-	make build -C reviewer/
-	make build -C admin/
 
 runtime:
-	make runtime -C pub/
-	make runtime -C speaker/
-	make runtime -C reviewer/
-	make runtime -C admin/
-	make runtime -C ext/
+	make -C pub/
+	make -C speaker/
+	make -C reviewer/
+	make -C admin/
+	make -C ext/
 	make upload
 
 upload:
@@ -32,10 +29,8 @@ upload:
 	@echo "*WARNING: webservergroup = group to which the webserver's processes are bound"
 	@echo "***********************************************"
 
-
-
 %.png: %.svg
-	-rsvg $< $@
+	rsvg $< $@
 
 ###### DISTRIBUTION ######
 
@@ -102,4 +97,4 @@ clean:
 	make clean -C speaker/
 	make clean -C reviewer/
 	make clean -C admin/
-	@rmdir upload/ && echo "removed upload/" || echo "*********************************" && echo "*WARNING: upload/ not empty, not removing." && echo "*********************************"
+	@(test -d upload/ && rmdir  upload/ && echo "removed upload/") || (test -d upload && echo "*********************************" && echo "*WARNING: upload/ not empty, not removing." && echo "*********************************" || true)

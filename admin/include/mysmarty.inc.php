@@ -1,7 +1,9 @@
-<?php
+<?
 
 require_once 'include/config.inc.php';
 require 'Smarty.class.php';
+
+header('Content-Type: text/html; charset=iso-8859-1');
 
 class MySmarty extends Smarty {
 

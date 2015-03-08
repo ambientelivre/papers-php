@@ -1,7 +1,7 @@
-<?php
+<?
 
 # application path
-$_application_path = preg_replace('/\/(admin|speaker|pub|reviewer)\/[^\/]*$/','', $_SERVER['SCRIPT_FILENAME']);
+$_application_path = preg_replace('/\/(admin|speaker|pub|reviewer|register)\/[^\/]*$/','', $_SERVER['SCRIPT_FILENAME']);
 
 
 
@@ -13,9 +13,21 @@ function papers_expand_path($path) {
 }
 
 function papers_url() {
-  $path = preg_replace('/\/(admin|speaker|pub|reviewer)\/[^\/]*$/','', $_SERVER['REQUEST_URI']);
+  $path = preg_replace('/\/(admin|speaker|pub|reviewer|register)\/[^\/]*$/','', $_SERVER['REQUEST_URI']);
   $protocol = (($_SERVER['SERVER_PORT'] == 443)?'https':'http') . '://';
   return $protocol . $_SERVER['HTTP_HOST'] .  $path;
+}
+
+function papers_template() {
+  global $papers;
+  global $_application_path;
+  $custom_template = "index-" . $papers['event']['codename'] . ".tpl";
+  $custom_template_path = $_application_path . "/speaker/templates/" . $custom_template;
+  if (file_exists($custom_template_path)) {
+    return $custom_template;
+  } else {
+    return 'index.tpl';
+  }
 }
 
 #### end of utility functions #######################################
@@ -27,7 +39,7 @@ $_configpaths = array(
 );
 
 $_server = preg_replace('/:.*/','',$_SERVER['HTTP_HOST']);
-$_path = preg_replace('/(admin|speaker|pub|reviewer).*/','', $_SERVER['REQUEST_URI']);
+$_path = preg_replace('/(admin|speaker|pub|reviewer|register).*/','', $_SERVER['REQUEST_URI']);
 
 $configfilename = $_server . $_path;
 $configfilename = preg_replace('/\//','.', $configfilename);

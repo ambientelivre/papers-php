@@ -1,4 +1,4 @@
-<?php
+<?
 
 include_once('include/propostas.inc.php');
 

@@ -5,22 +5,22 @@
  * * * * * * * * * * * * * */
 
 // database configuration:
-$papers['db']['localhost']         = '';
-$papers['db']['papers']         = '';
-$papers['db']['root']         = '';
-$papers['db']['sejalivre']         = '';
+$papers['db']['hostname']         = '<HOST>';
+$papers['db']['database']         = '<DB>';
+$papers['db']['username']         = '<USER>';
+$papers['db']['password']         = '<PASSWD>';
 
 /* * * * * * * * * * * * 
  * event configuration *
  * * * * * * * * * * * */
 
-$papers['event']['submission_first_day']  = '25 September 2005';
-$papers['event']['submission_last_day']   = '25 October 2005';
-$papers['event']['review_last_day']       = '25 November 2005';
-$papers['event']['result_publication']    = '25 December 2005';
-$papers['event']['last_day_for_update']   = '25 January 2005';
-$papers['event']['codename']              = 'myevent2005';
-$papers['event']['name']                  = 'My Event 2005';
+$papers['event']['submission_first_day']  = '01 June 2012';
+$papers['event']['submission_last_day']   = '01 July 2012';
+$papers['event']['review_last_day']       = '01 August 2012';
+$papers['event']['result_publication']    = '01 September 2012';
+$papers['event']['last_day_for_update']   = '01 October 2012';
+$papers['event']['codename']              = 'myevent2012';
+$papers['event']['name']                  = 'My Event 2012';
 $papers['event']['contact_email']         = 'webmaster@localhost';
 
 

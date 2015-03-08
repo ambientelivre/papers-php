@@ -126,7 +126,10 @@ Ou:
     ServerName papers.seu.dominio.dom
     DocumentRoot /usr/share/papers
     <Directory /usr/share/papers>
+      AllowOverride all
       Options +MultiViews
+      AddHandler php5-script php
+      AddType text/html php
     </Directory>
     ....
   </VirtualHost>

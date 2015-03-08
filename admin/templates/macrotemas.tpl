@@ -1,60 +1,26 @@
-<form action="macrotemasSave" method="POST">
-  <table class='formulario' align='center'>
+<table class='formulario'>
   <tr>
-    <th>Espa&#231;os nos Macrotemas</th>
+    <th>Título</th>
+    <th>Ações</th>
   </tr>
-  </table>
-  <table  align="center" class="formulario">
-    {section loop=$rs name=p}
-      <tr>
-        <th >Macrotema "{$rs[p].titulo}"</th>
-      </tr>
-      <tr>
-        <td align='center'>
-          <input size="5" type="text" name="espacos_{$rs[p].cod}" value="{$rs[p].espacos}"/>
-        </td>
-      </tr>
-    {/section}
-    <tr>
-      <th>
-        <input type="submit" value="Salvar"/>
-      </th>
-    </tr>
-  </table>
-</form>
-
-<form action="addmacrotemaSave" method="POST">
-<br>
-<table class='formulario' align='center'>
+  {section loop=$macrotemas name=m}
   <tr>
-    <th>Adicione novo macrotema</th>
-  </tr>
-</table>
-<table class='formulario' align='center'>
-  <tr>
-    <th>T&iacute;tulo:</th>
-    <td><input type="text" name="titulo"/></td>
-  </tr>
-  <tr>
-    <th>T&iacute;tulo em ingl&ecirc;s:</th>
-    <td><input type="text" name="titulo_en"/></td>
-  </tr>
-  <tr>
-    <th>Descri&ccedil;&atilde;o:</th>
-    <td><input type="text" name="descr"/></td>
-  </tr>
-  <tr>
-    <th>Descri&ccedil;&atilde;o em ingl&ecirc;s:</th>
-    <td><input type="text" name="descr_en"/></td>
-  </tr>
-  <tr>
-    <th>Espa&ccedil;os:</th>
-    <td><input type="text" name="espacos"/></td>
-  </tr>
-  <tr>
-    <td colspan='2'>
-      <input type="submit"/>
+    <td>
+      <a href="macrotema/{$macrotemas[m].cod}">{$macrotemas[m].titulo}</a>
+    </td>
+    <td>
+      <a href="macrotema/{$macrotemas[m].cod}">Editar</a>
+      &nbsp;&nbsp;
+      <a href="macrotemaDelete/{$macrotemas[m].cod}" onclick="javascript: return confirm('Tem certeza que deseja excluir esse item?')">Excluir</a>
+      &nbsp;&nbsp;
+      <a href="macrotemaUp/{$macrotemas[m].cod}">Mover para cima</a>
+      &nbsp;&nbsp;
+      <a href="macrotemaDown/{$macrotemas[m].cod}">Mover para baixo</a>
     </td>
   </tr>
+  {/section}
 </table>
-</form>
+
+<p>
+<a href="macrotema">Novo macrotema</a>
+</p>
