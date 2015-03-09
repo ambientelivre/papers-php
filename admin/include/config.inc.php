@@ -76,12 +76,7 @@ $_extensions = array();
 # discover function
 function papers_ext_conf($path, $extname) {
   global $_extensions;
-  
-  echo "path=" . $path . "<BR>";
-  echo "extname=" . $extname . "<BR>";
-  echo "ARRAY=<BR>=";
-  print_r($_extensions);
-  
+ 
   if ($_extensions[$extname]) {
   	return;
   }
@@ -95,20 +90,10 @@ function papers_ext_conf($path, $extname) {
 papers_ext_conf($_application_path . '/ext/smarty/libs', 'smarty');
 papers_ext_conf($_application_path . '/ext/adodb', 'adodb');
 
-
 # auto configuration on Debian
-//papers_ext_conf('/usr/share/adodb', 'adodb'); # old
-//papers_ext_conf('/usr/share/php/adodb', 'adodb'); # new
-//papers_ext_conf('/usr/share/php/smarty/libs', 'smarty');
-
-
-echo "<BR><BR><BR><BR><BR><BR><BR>";
-echo  "papers_ext_conf<BR>";
-print_r($_application_path . '/ext/smarty/libs');
-echo "<BR><BR><BR><BR><BR><BR><BR>";
-
-
-
+papers_ext_conf('/usr/share/adodb', 'adodb'); # old
+papers_ext_conf('/usr/share/php/adodb', 'adodb'); # new
+papers_ext_conf('/usr/share/php/smarty/libs', 'smarty');
 
 # check if the needed extensions are available
 $_missing_extensions = array();
