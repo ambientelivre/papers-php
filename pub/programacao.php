@@ -23,11 +23,8 @@ if (! preg_match('/^[0-9]+$/',$cod)) {
   $cod = null;
 }
 
-echo "AQUI";
-
 $smarty = new MySmarty;
 $mysql = new Mysql;
-
 
 
 if ($cod) {

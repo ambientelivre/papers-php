@@ -2,7 +2,7 @@
 
 class Macrotemas {
   function carregar($db) {
-    $rs = $db->conn->Execute('select * from macrotemas order by position, cod');
+    $rs = $db->conn->Execute('select * from macrotemas order by cod');
     return $rs->GetArray();
   }
 

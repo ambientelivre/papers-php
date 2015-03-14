@@ -1,4 +1,4 @@
-<?
+<?php
 
 require_once 'include/auth.inc.php';
 require_once 'include/basic.inc.php';

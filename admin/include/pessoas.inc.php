@@ -18,7 +18,9 @@ class Pessoas {
     $sql = $db->conn->GetInsertSQL($rs,$r);
     
     if (! $db->conn->Execute($sql)) {
-      echo "Ocorreu um erro incluindo convidado no banco.";
+      echo "Ocorreu um erro incluindo convidado no banco.<BR>";
+      echo "verifique se e-mail já cadastrado.";
+      echo "SQL=" . $sql . "<BR>";	
       exit;
     }
 
